@@ -118,7 +118,11 @@ export const Layout = ({ children }: PropsWithChildren<LayoutProps>) => {
                       <Link
                         key={item.id}
                         href={item.href}
-                        className='text-lg font-medium tracking-tight'
+                        className={clsx(
+                          'text-lg font-medium tracking-tight',
+                          pathname === item.href && 'text-white',
+                          pathname !== item.href && 'text-zinc-400'
+                        )}
                         onClick={closeModal}>
                         {item.name}
                       </Link>
