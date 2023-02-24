@@ -1,3 +1,6 @@
+import { Disclosure, Transition } from '@headlessui/react';
+import clsx from 'clsx';
+
 export default function Home() {
   return (
     <div className='flex flex-col gap-4'>
@@ -16,86 +19,205 @@ export default function Home() {
             Aliquid cupiditate deserunt quam?
           </p>
         </div>
-        <div className='flex flex-col gap-2 p-4'>
-          <div className='flex flex-col gap-3 bg-zinc-800 p-4 rounded-md'>
-            <h4 className='text-2xl font-semibold font-cal-sans'>
-              UI/UX Development
-            </h4>
-            <p className='text-sm text-zinc-200'>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Molestiae, dignissimos in. At labore in quaerat praesentium ad
-              fugit cum vero eos deserunt.
-            </p>
-          </div>
-          <div className='flex flex-col gap-3 bg-zinc-800 p-4 rounded-md'>
-            <h4 className='text-2xl font-semibold font-cal-sans'>
-              Software Development
-            </h4>
-            <p className='text-sm text-zinc-200'>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Molestiae, dignissimos in. At labore in quaerat praesentium ad
-              fugit cum vero eos deserunt.
-            </p>
-          </div>
-          <div className='flex flex-col gap-3 bg-zinc-800 p-4 rounded-md'>
-            <h4 className='text-2xl font-semibold font-cal-sans'>
-              Web Development
-            </h4>
-            <p className='text-sm text-zinc-200'>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Molestiae, dignissimos in. At labore in quaerat praesentium ad
-              fugit cum vero eos deserunt.
-            </p>
-          </div>
-          <div className='flex flex-col gap-3 bg-zinc-800 p-4 rounded-md'>
-            <h4 className='text-2xl font-semibold font-cal-sans'>
-              Search Engine Optimisation
-            </h4>
-            <p className='text-sm text-zinc-200'>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Molestiae, dignissimos in. At labore in quaerat praesentium ad
-              fugit cum vero eos deserunt.
-            </p>
-          </div>
+        <div className='flex flex-col'>
+          <Disclosure>
+            {({ open }) => (
+              <>
+                <Disclosure.Button className='text-2xl font-semibold font-cal-sans flex w-full justify-between items-center rounded-lg bg-zinc-800 px-4 py-2 text-left hover:bg-zinc-700 focus:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-opacity-75'>
+                  <span>UI/UX Development</span>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    strokeWidth={1.5}
+                    stroke='currentColor'
+                    className={clsx(
+                      'w-4 h-4 text-white',
+                      open && 'rotate-180'
+                    )}>
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      d='M19.5 8.25l-7.5 7.5-7.5-7.5'
+                    />
+                  </svg>
+                </Disclosure.Button>
+                <Transition
+                  enter='transition duration-100 ease-out'
+                  enterFrom='transform scale-95 opacity-0'
+                  enterTo='transform scale-100 opacity-100'
+                  leave='transition duration-75 ease-out'
+                  leaveFrom='transform scale-100 opacity-100'
+                  leaveTo='transform scale-95 opacity-0'>
+                  <Disclosure.Panel className='px-4 pt-4 pb-2 text-sm text-zinc-200'>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Molestiae, dignissimos in. At labore in quaerat praesentium
+                    ad fugit cum vero eos deserunt.
+                  </Disclosure.Panel>
+                </Transition>
+              </>
+            )}
+          </Disclosure>
         </div>
-      </section>
-      <section className='flex flex-col gap-2'>
-        <h3 className='text-2xl font-semibold underline decoration-indigo-600 underline-offset-4 font-cal-sans'>
-          Contact Us
-        </h3>
-        <div className='flex flex-col gap-2'>
-          <div className='flex items-center gap-2'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              fill='none'
-              viewBox='0 0 24 24'
-              strokeWidth={1.5}
-              stroke='currentColor'
-              className='w-4 h-4'>
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                d='M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75'
-              />
-            </svg>
-            <span className='text-sm'>john@doe.com</span>
-          </div>
-          <div className='flex items-center gap-2'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              fill='none'
-              viewBox='0 0 24 24'
-              strokeWidth={1.5}
-              stroke='currentColor'
-              className='w-4 h-4'>
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                d='M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3'
-              />
-            </svg>
-            <span className='text-sm'>+91 543543534543</span>
-          </div>
+        <div className='flex flex-col'>
+          <Disclosure>
+            {({ open }) => (
+              <>
+                <Disclosure.Button className='text-2xl font-semibold font-cal-sans flex w-full justify-between rounded-lg bg-zinc-800 px-4 py-2 text-left hover:bg-zinc-700 focus:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-opacity-75'>
+                  <span>Web Development</span>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    strokeWidth={1.5}
+                    stroke='currentColor'
+                    className={clsx(
+                      'w-4 h-4 text-white',
+                      open && 'rotate-180'
+                    )}>
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      d='M19.5 8.25l-7.5 7.5-7.5-7.5'
+                    />
+                  </svg>
+                </Disclosure.Button>
+                <Transition
+                  enter='transition duration-100 ease-out'
+                  enterFrom='transform scale-95 opacity-0'
+                  enterTo='transform scale-100 opacity-100'
+                  leave='transition duration-75 ease-out'
+                  leaveFrom='transform scale-100 opacity-100'
+                  leaveTo='transform scale-95 opacity-0'>
+                  <Disclosure.Panel className='px-4 pt-4 pb-2 text-sm text-zinc-200'>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Molestiae, dignissimos in. At labore in quaerat praesentium
+                    ad fugit cum vero eos deserunt.
+                  </Disclosure.Panel>
+                </Transition>
+              </>
+            )}
+          </Disclosure>
+        </div>
+        <div className='flex flex-col'>
+          <Disclosure>
+            {({ open }) => (
+              <>
+                <Disclosure.Button className='text-2xl font-semibold font-cal-sans flex w-full justify-between rounded-lg bg-zinc-800 px-4 py-2 text-left hover:bg-zinc-700 focus:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-opacity-75'>
+                  <span>Web Design</span>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    strokeWidth={1.5}
+                    stroke='currentColor'
+                    className={clsx(
+                      'w-4 h-4 text-white',
+                      open && 'rotate-180'
+                    )}>
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      d='M19.5 8.25l-7.5 7.5-7.5-7.5'
+                    />
+                  </svg>
+                </Disclosure.Button>
+                <Transition
+                  enter='transition duration-100 ease-out'
+                  enterFrom='transform scale-95 opacity-0'
+                  enterTo='transform scale-100 opacity-100'
+                  leave='transition duration-75 ease-out'
+                  leaveFrom='transform scale-100 opacity-100'
+                  leaveTo='transform scale-95 opacity-0'>
+                  <Disclosure.Panel className='px-4 pt-4 pb-2 text-sm text-zinc-200'>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Molestiae, dignissimos in. At labore in quaerat praesentium
+                    ad fugit cum vero eos deserunt.
+                  </Disclosure.Panel>
+                </Transition>
+              </>
+            )}
+          </Disclosure>
+        </div>
+        <div className='flex flex-col'>
+          <Disclosure>
+            {({ open }) => (
+              <>
+                <Disclosure.Button className='text-2xl font-semibold font-cal-sans flex w-full justify-between rounded-lg bg-zinc-800 px-4 py-2 text-left hover:bg-zinc-700 focus:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-opacity-75'>
+                  <span>Search Engine Optimisation</span>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    strokeWidth={1.5}
+                    stroke='currentColor'
+                    className={clsx(
+                      'w-4 h-4 text-white',
+                      open && 'rotate-180'
+                    )}>
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      d='M19.5 8.25l-7.5 7.5-7.5-7.5'
+                    />
+                  </svg>
+                </Disclosure.Button>
+                <Transition
+                  enter='transition duration-100 ease-out'
+                  enterFrom='transform scale-95 opacity-0'
+                  enterTo='transform scale-100 opacity-100'
+                  leave='transition duration-75 ease-out'
+                  leaveFrom='transform scale-100 opacity-100'
+                  leaveTo='transform scale-95 opacity-0'>
+                  <Disclosure.Panel className='px-4 pt-4 pb-2 text-sm text-zinc-200'>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Molestiae, dignissimos in. At labore in quaerat praesentium
+                    ad fugit cum vero eos deserunt.
+                  </Disclosure.Panel>
+                </Transition>
+              </>
+            )}
+          </Disclosure>
+        </div>
+        <div className='flex flex-col'>
+          <Disclosure>
+            <Disclosure.Button className='text-2xl font-semibold font-cal-sans flex w-full justify-between rounded-lg bg-zinc-800 px-4 py-2 text-left hover:bg-zinc-700 focus:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-opacity-75'>
+              <span>Dummy</span>
+            </Disclosure.Button>
+            <Transition
+              enter='transition duration-100 ease-out'
+              enterFrom='transform scale-95 opacity-0'
+              enterTo='transform scale-100 opacity-100'
+              leave='transition duration-75 ease-out'
+              leaveFrom='transform scale-100 opacity-100'
+              leaveTo='transform scale-95 opacity-0'>
+              <Disclosure.Panel className='px-4 pt-4 pb-2 text-sm text-zinc-200'>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Molestiae, dignissimos in. At labore in quaerat praesentium ad
+                fugit cum vero eos deserunt.
+              </Disclosure.Panel>
+            </Transition>
+          </Disclosure>
+        </div>{' '}
+        <div className='flex flex-col'>
+          <Disclosure>
+            <Disclosure.Button className='text-2xl font-semibold font-cal-sans flex w-full justify-between rounded-lg bg-zinc-800 px-4 py-2 text-left hover:bg-zinc-700 focus:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-opacity-75'>
+              <span>Dummy</span>
+            </Disclosure.Button>
+            <Transition
+              enter='transition duration-100 ease-out'
+              enterFrom='transform scale-95 opacity-0'
+              enterTo='transform scale-100 opacity-100'
+              leave='transition duration-75 ease-out'
+              leaveFrom='transform scale-100 opacity-100'
+              leaveTo='transform scale-95 opacity-0'>
+              <Disclosure.Panel className='px-4 pt-4 pb-2 text-sm text-zinc-200'>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Molestiae, dignissimos in. At labore in quaerat praesentium ad
+                fugit cum vero eos deserunt.
+              </Disclosure.Panel>
+            </Transition>
+          </Disclosure>
         </div>
       </section>
       <section className='flex flex-col gap-2'>
@@ -155,6 +277,45 @@ export default function Home() {
           nemo inventore nesciunt voluptates eaque impedit dicta! Perferendis
           eos corporis dolorem.
         </p>
+      </section>
+      <section className='flex flex-col gap-2'>
+        <h3 className='text-2xl font-semibold underline decoration-indigo-600 underline-offset-4 font-cal-sans'>
+          Contact Us
+        </h3>
+        <div className='flex flex-col gap-2'>
+          <div className='flex items-center gap-2'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
+              strokeWidth={1.5}
+              stroke='currentColor'
+              className='w-4 h-4'>
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                d='M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75'
+              />
+            </svg>
+            <span className='text-sm'>john@doe.com</span>
+          </div>
+          <div className='flex items-center gap-2'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
+              strokeWidth={1.5}
+              stroke='currentColor'
+              className='w-4 h-4'>
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                d='M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3'
+              />
+            </svg>
+            <span className='text-sm'>+91 543543534543</span>
+          </div>
+        </div>
       </section>
     </div>
   );
