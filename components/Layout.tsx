@@ -113,20 +113,26 @@ export const Layout = ({ children }: PropsWithChildren<LayoutProps>) => {
                       </svg>
                     </button>
                   </Dialog.Title>
-                  <nav className='flex flex-col gap-1'>
-                    {navigationLinks.map((item) => (
-                      <Link
-                        key={item.id}
-                        href={item.href}
-                        className={clsx(
-                          'text-lg font-medium tracking-tight',
-                          pathname === item.href && 'text-white',
-                          pathname !== item.href && 'text-zinc-400'
-                        )}
-                        onClick={closeModal}>
-                        {item.name}
-                      </Link>
-                    ))}
+                  <nav>
+                    <ul>
+                      {navigationLinks.map((item, idx) => (
+                        <li key={item.id} className='flex flex-col gap-2 mt-2'>
+                          <Link
+                            href={item.href}
+                            className={clsx(
+                              'text-lg font-medium tracking-tight',
+                              pathname === item.href && 'text-white',
+                              pathname !== item.href && 'text-zinc-400'
+                            )}
+                            onClick={closeModal}>
+                            {item.name}
+                          </Link>
+                          {idx + 1 !== navigationLinks.length && (
+                            <hr className='border-t border-zinc-700' />
+                          )}
+                        </li>
+                      ))}
+                    </ul>
                   </nav>
                 </Dialog.Panel>
               </Transition.Child>
