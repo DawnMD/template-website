@@ -37,7 +37,7 @@ export const Layout = ({ children }: PropsWithChildren<LayoutProps>) => {
   return (
     <div
       className={`min-h-screen bg-zinc-900 text-white scroll-smooth flex flex-col ${calSans.variable} ${matter.className}`}>
-      <header className='flex items-center justify-between p-4 fixed top-0 inset-x-0 bg-transparent backdrop-blur-2xl'>
+      <header className='fixed inset-x-0 top-0 flex items-center justify-between p-4 bg-transparent backdrop-blur-2xl'>
         <Link
           href='/'
           className='text-xl font-bold tracking-tight font-cal-sans'>
@@ -45,7 +45,7 @@ export const Layout = ({ children }: PropsWithChildren<LayoutProps>) => {
         </Link>
         <div className='lg:hidden'>
           <button
-            className='flex bg-zinc-800 items-center gap-2 text-sm border border-white/20 rounded-md p-2'
+            className='flex items-center gap-2 p-2 text-sm border rounded-md bg-zinc-800 border-white/20'
             onClick={toggleMobileNav}>
             <span>Menu</span>
             <svg
@@ -64,8 +64,8 @@ export const Layout = ({ children }: PropsWithChildren<LayoutProps>) => {
           </button>
         </div>
       </header>
-      <main className='grow mt-20 p-4'>{children}</main>
-      <footer className='p-4 text-center text-sm bg-zinc-800'>
+      <main className='p-4 mt-20 grow'>{children}</main>
+      <footer className='p-4 text-sm text-center bg-zinc-800'>
         <p>{`©${new Date().getFullYear()} All rights reserved to thetechcodehub`}</p>
       </footer>
       {/* Modal */}
@@ -83,7 +83,7 @@ export const Layout = ({ children }: PropsWithChildren<LayoutProps>) => {
           </Transition.Child>
 
           <div className='fixed inset-0 overflow-y-auto'>
-            <div className='flex min-h-full items-center justify-center p-4 text-center'>
+            <div className='flex items-center justify-center min-h-full p-4 text-center'>
               <Transition.Child
                 as={Fragment}
                 enter='ease-out duration-300'
@@ -92,10 +92,10 @@ export const Layout = ({ children }: PropsWithChildren<LayoutProps>) => {
                 leave='ease-in duration-200'
                 leaveFrom='opacity-100 scale-100'
                 leaveTo='opacity-0 scale-95'>
-                <Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-2xl bg-zinc-800 text-white p-6 text-left align-middle shadow-xl transition-all flex flex-col gap-4'>
+                <Dialog.Panel className='flex flex-col w-full max-w-md gap-4 p-6 overflow-hidden text-left text-white align-middle transition-all transform shadow-xl rounded-2xl bg-zinc-800'>
                   <Dialog.Title
                     as='div'
-                    className='flex items-center justify-between font-medium text-sm text-zinc-400'>
+                    className='flex items-center justify-between text-sm font-medium text-zinc-400'>
                     <p>Navigation</p>
                     <button onClick={closeModal}>
                       <svg
